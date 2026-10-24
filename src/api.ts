@@ -3,6 +3,7 @@ export class ApiError extends Error { constructor(message:string, public status:
 export async function api<T=any>(path:string, options:RequestInit={}):Promise<T>{
   const response=await fetch('/api/v1'+path,{credentials:'same-origin',...options,headers:{...(options.body && !(options.body instanceof FormData)?{'Content-Type':'application/json'}:{}),...options.headers}});
   if(!response.ok){const e=await response.json().catch(()=>({detail:'Não foi possível concluir a solicitação.'}));throw new ApiError(e.detail||'Erro inesperado.',response.status)}
+  if(!response.headers.get('content-type')?.includes('json'))throw new ApiError('O servidor da aplicação está indisponível. Tente novamente em instantes.',502);
   return response.json();
 }
 export const send=(path:string,data:unknown,method='POST')=>api(path,{method,body:JSON.stringify(data)});

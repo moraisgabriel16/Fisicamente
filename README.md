@@ -4,6 +4,12 @@ Interface React + TypeScript + Vite para acompanhamento da educação física es
 
 **API:** [moraisgabriel16/FisicamenteBack](https://github.com/moraisgabriel16/FisicamenteBack).
 
+## Endereço online
+
+O projeto está configurado para `https://fisicamente-sigma.vercel.app`, com cadastro em `/cadastro`. Na Vercel, `vercel.json` encaminha `/api` à API `https://fisicamenteback.vercel.app` e preserva as rotas da aplicação. A implantação usa Node 24.
+
+Na publicação inicial de testes, o cadastro é imediato, por escolha do proprietário. A confirmação e a recuperação por e-mail dependem da configuração posterior do envio. Convites podem ser compartilhados por link individual pelo gestor.
+
 ## Executar
 
 Requisitos: Node 22.12+ ou 24 e a API em execução.
